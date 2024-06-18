@@ -9,11 +9,9 @@ window.onload = function () {
 function initialize() {
 
     // Create game board
+    for (let x = 0; x < 3; x++) { //x axis
+        for (let y = 0; y < 3; y++) {//y axis
 
-    
-
-    for (let x = 0; x < 3; x++) {
-        for (let y = 0; y < 3; y++) {
             let tile = document.createElement("div");
             tile.id = x.toString() + "-" + y.toString();
             tile.xAxis = x.toString();
@@ -25,7 +23,7 @@ function initialize() {
                 clickHandler(tile.id)
             })
 
-            switch (x) {
+            switch (x) { //set borders based on x axis position
                 case 0:
                     tile.style.borderBottom = "2px solid black"
                     break
@@ -40,7 +38,7 @@ function initialize() {
                     break
             }
 
-            switch (y) {
+            switch (y) { //set borders based on y axis position
                 case 0:
                     tile.style.borderRight = "2px solid black"
                     break
@@ -62,9 +60,10 @@ function initialize() {
 
 }
 
-function clickHandler(id) {
+function clickHandler(id) { 
     let tile = document.getElementById(id);
-    if (tile.set == false) {
+    if (tile.set == false) { //if tile is not already filled out, set box to player's symbol,
+                             //mark box as checked, and change the turn variable to the other player
         if (turn == 0) {
             tile.innerHTML = "<i class='fa-solid fa-x'></i>";
             turn = 1;
@@ -77,7 +76,7 @@ function clickHandler(id) {
 
 }
 
-function resetGame() {
+function resetGame() { //iterate through all tiles and reset their contents, as well as their status
     let tiles = document.getElementsByClassName("tile");
 
     for (let i = 0; i < tiles.length; i++) {
