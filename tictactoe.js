@@ -107,7 +107,7 @@ function checkGameState(){
             document.getElementById("message").innerHTML = "O Wins!";
             tiles[x].innerHTML = "<i class='fa-regular fa-circle' style='color: #008000'></i>";
             tiles[y].innerHTML = "<i class='fa-regular fa-circle' style='color: #008000'></i>";
-            tiles[z].innerHTML = "<i class='fa-regular fa-cirlce' style='color: #008000'></i>";
+            tiles[z].innerHTML = "<i class='fa-regular fa-circle' style='color: #008000'></i>";
         }
 
     }
