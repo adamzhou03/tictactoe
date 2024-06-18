@@ -1,0 +1,27 @@
+h1 {
+    text-align: center;
+}
+
+.tile {
+    height: 33%;
+    width: 32%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+#board {
+    width: 210px;
+    height: 210px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+button{
+    margin: 0 auto;
+}
+
+
