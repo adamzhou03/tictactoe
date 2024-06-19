@@ -105,6 +105,7 @@ function checkGameState(){
             for (let i = 0; i < tiles.length; i++) {
                 tiles[i].set = 4;
             }
+            return;
         }
         else if (tiles[x].set == 2 && tiles[y].set == 2 && tiles[z].set == 2){
             document.getElementById("message").innerHTML = "O Wins!";
@@ -114,9 +115,25 @@ function checkGameState(){
             for (let i = 0; i < tiles.length; i++) {
                 tiles[i].set = 4;
             }
+            return;
+        }
+        else{
+            checkTie();
         }
 
     }
+}
+
+function checkTie(){
+    let tiles = document.getElementsByClassName("tile");
+
+    for (let i = 0; i < tiles.length; i++) {
+        if(tiles[i].set == 0){
+            return;
+        }
+    }
+    document.getElementById("message").innerHTML = "Tie";
+
 }
 
 function resetGame() { //iterate through all tiles and reset their contents, as well as their status
