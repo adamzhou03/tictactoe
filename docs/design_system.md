@@ -23,3 +23,11 @@ is used to indicate winning tiles when a player wins.
 ###Custom Components
 
 ![Components](assets/design_system/components.png)
+
+###Game States
+
+![Start](assets/design_system/start.png)
+
+![Middle](assets/design_system/middle.png)
+
+![End](assets/design_system/end.png)
