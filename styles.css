@@ -25,7 +25,13 @@ h2{
 }
 
 button{
+    display: flex;
     margin: 0 auto;
+    background-color: chartreuse;
+    text-align: center;
+    justify-content: center;
+    padding: 10px 24px;
+    border-radius: 5px;
 }
 
 

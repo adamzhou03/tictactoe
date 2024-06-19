@@ -102,12 +102,18 @@ function checkGameState(){
             tiles[x].innerHTML = "<i class='fa-solid fa-x' style='color: #008000'></i>";
             tiles[y].innerHTML = "<i class='fa-solid fa-x' style='color: #008000'></i>";
             tiles[z].innerHTML = "<i class='fa-solid fa-x' style='color: #008000'></i>";
+            for (let i = 0; i < tiles.length; i++) {
+                tiles[i].set = 4;
+            }
         }
         else if (tiles[x].set == 2 && tiles[y].set == 2 && tiles[z].set == 2){
             document.getElementById("message").innerHTML = "O Wins!";
             tiles[x].innerHTML = "<i class='fa-regular fa-circle' style='color: #008000'></i>";
             tiles[y].innerHTML = "<i class='fa-regular fa-circle' style='color: #008000'></i>";
             tiles[z].innerHTML = "<i class='fa-regular fa-circle' style='color: #008000'></i>";
+            for (let i = 0; i < tiles.length; i++) {
+                tiles[i].set = 4;
+            }
         }
 
     }
