@@ -24,7 +24,13 @@ line, and they are made green by the client. After a win or tie, the leaderboard
 and returned to the client.
 
 The reset button clears the board on the client side and sends a request to the server to reset the tile states.
-###Game States
+
+#Project Structure
+
+The index.php file contains the base html, and the server-side logic is contained in gamelogic.php
+Client-side JS is in tictactoe.js, and css is kept in styles.css. Font Awesome icons are used to represent moves.
+
+#Game States
 
 ![Start](assets/design_system/start.png)
 
