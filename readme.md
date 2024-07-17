@@ -1,4 +1,4 @@
-repo for CSI 3140 Assignment 2 - Group 39
+repo for CSI 3140 Assignment 3 - Group 39
 
 The main page TicTacToe.html contains the playable tictactoe game. Two players will take turns placing Xs and Os until one player wins by making three in a row or the board fills up resulting in a tie.
 
