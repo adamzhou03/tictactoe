@@ -41,10 +41,10 @@ if ( isset( $_REQUEST[ 'q' ] ) ) {
             array( 'xAxis' => 2, 'yAxis' => 2, 'set' => 0 )
         ];
 
-        $_SESSION['leaderboard'] = [
-            "Ties" => 0,
-            "X Wins" => 0,
-            "O Wins" => 0
+        $_SESSION[ 'leaderboard' ] = [
+            'Ties' => 0,
+            'X Wins' => 0,
+            'O Wins' => 0
         ];
 
     } else if ( strlen( $q ) === 0 ) {
@@ -52,7 +52,7 @@ if ( isset( $_REQUEST[ 'q' ] ) ) {
 
     } else if ( $q == 'reset' ) {
         resetGame();
-    } else if ( $q == 'leaderboard') {
+    } else if ( $q == 'leaderboard' ) {
         getLeaderboard();
     } else {
         //gets tile id( 0 to 8 )
@@ -104,7 +104,7 @@ function checkEndGame() {
                     $win[ 1 ],
                     $win[ 2 ]
                 ];
-                $_SESSION['leaderboard']["X Wins"] += 1;
+                $_SESSION[ 'leaderboard' ][ 'X Wins' ] += 1;
 
                 for ( $w = 0; $w < count( $_SESSION[ 'tiles' ] );
                 $w++ ) {
@@ -122,7 +122,7 @@ function checkEndGame() {
                     $win[ 1 ],
                     $win[ 2 ]
                 ];
-                $_SESSION['leaderboard']["O Wins"] += 1;
+                $_SESSION[ 'leaderboard' ][ 'O Wins' ] += 1;
                 for ( $w = 0; $w < count( $_SESSION[ 'tiles' ] );
                 $w++ ) {
                     $_SESSION[ 'tiles' ][ $w ][ 'set' ] = 4;
@@ -150,7 +150,8 @@ function checkEndGame() {
         ) {
             echo 'tie';
             $_SESSION[ 'turn' ] = 3;
-            $_SESSION['leaderboard']["Ties"] += 1;
+            // make turn 3 so no more moves can be made.
+            $_SESSION[ 'leaderboard' ][ 'Ties' ] += 1;
             exit;
         } else {
             echo '';
@@ -159,7 +160,8 @@ function checkEndGame() {
 
 }
 
-function resetGame() { // reset game.
+function resetGame() {
+    // reset game.
     for ( $w = 0; $w < count( $_SESSION[ 'tiles' ] );
     $w++ ) {
         $_SESSION[ 'tiles' ][ $w ][ 'set' ] = 0;
@@ -168,7 +170,8 @@ function resetGame() { // reset game.
 }
 
 function getLeaderboard() {
-    $response = json_encode($_SESSION['leaderboard']);
+    // return leaderboard.
+    $response = json_encode( $_SESSION[ 'leaderboard' ] );
     echo $response;
 }
 ?>
