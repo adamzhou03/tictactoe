@@ -1,3 +1,9 @@
+body{
+    font-family: 'Baloo 2', cursive;
+    font-size: large;
+    
+}
+
 h1 {
     text-align: center;
 }
@@ -22,6 +28,12 @@ h2{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 20px;
+    border: ridge black;
+}
+
+#leaderboard {
+    padding-bottom: 20px;
 }
 
 button{
@@ -32,26 +44,28 @@ button{
     justify-content: center;
     padding: 10px 24px;
     border-radius: 5px;
-}
-
-#leaderboard{
-    display: flex;
-    margin: 0 auto;
-    background-color: chartreuse;
-    text-align: center;
-    justify-content: center;
-    padding: 10px 24px;
-    border-radius: 5px;
+    font-size: large;
+    font-family: 'Baloo 2', cursive;
 }
 
 table {
-    display: flex;
     margin: 0 auto;
-    background-color: chartreuse;
-    text-align: left;
-    justify-content: center;
-    padding: 10px 24px;
-    border-radius: 5px;
-    border: 1px solid;
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #000000;
+    text-align: center;
+}
+
+.x-wins {
+    color: blue;
+}
+
+.o-wins {
+    color: red;
+}
+
 

@@ -146,19 +146,21 @@ function getLeaderboard() {
             let oWins = leaderboardStats['O Wins'];
 
             document.getElementById("leaderboard").innerHTML = `
-                <h2>Session Leaderboard</h1>
                 <table>
-                    <tr> 
-                        <th>Ties</th>
-                        <td>${ties}</td>
+                    <tr class="title-row">
+                        <th colspan="2">Session Leaderboard</th>
                     </tr>
                     <tr> 
-                        <th>X Wins</th>
-                        <td>${xWins}</td>
+                        <th class="ties">Ties</th>
+                        <td class="ties">${ties}</td>
                     </tr>
                     <tr> 
-                        <th>O Wins</th>
-                        <td>${oWins}</td>
+                        <th class="x-wins">X Wins</th>
+                        <td class="x-wins">${xWins}</td>
+                    </tr>
+                    <tr> 
+                        <th class="o-wins">O Wins</th>
+                        <td class="o-wins">${oWins}</td>
                     </tr>
                 </table>
             `;
