@@ -20,6 +20,7 @@
     <h2>
       <span id="message"></span>
     </h2>
+    <div id="leaderboard"></div>
     <button onclick="resetGame()">
       Reset
     </button>

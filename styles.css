@@ -34,4 +34,24 @@ button{
     border-radius: 5px;
 }
 
+#leaderboard{
+    display: flex;
+    margin: 0 auto;
+    background-color: chartreuse;
+    text-align: center;
+    justify-content: center;
+    padding: 10px 24px;
+    border-radius: 5px;
+}
+
+table {
+    display: flex;
+    margin: 0 auto;
+    background-color: chartreuse;
+    text-align: left;
+    justify-content: center;
+    padding: 10px 24px;
+    border-radius: 5px;
+    border: 1px solid;
+}
 

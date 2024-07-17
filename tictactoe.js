@@ -91,6 +91,7 @@ function checkGameState() { // checks for win or tie.
         if (this.readyState == 4 && this.status == 200) {
             if (this.responseText == "tie") {
                 document.getElementById("message").innerHTML = "Tie!";
+                getLeaderboard();
             }
             else if (this.responseText != "") { // if not tie or no win, parse win message. Contains 
                 // winner and winning marks.
@@ -107,6 +108,7 @@ function checkGameState() { // checks for win or tie.
                     tiles[winMsg[2]].innerHTML = "<i class='fa-regular fa-circle' style='color: #008000'></i>";
                     tiles[winMsg[3]].innerHTML = "<i class='fa-regular fa-circle' style='color: #008000'></i>";
                 }
+                getLeaderboard();
             }
 
         }
@@ -119,6 +121,7 @@ function checkGameState() { // checks for win or tie.
 
 function resetGame() { // reset game.
     document.getElementById("message").innerHTML = "X's Turn";
+    document.getElementById("leaderboard").innerHTML = "";
 
     let tiles = document.getElementsByClassName("tile");
     for (let i = 0; i < tiles.length; i++) {
@@ -129,6 +132,43 @@ function resetGame() { // reset game.
     var req = new XMLHttpRequest();
     req.open("GET", "gamelogic.php?q=" + "reset", true);
     req.send();
+}
+
+function getLeaderboard() {
+
+    var req = new XMLHttpRequest();
+
+    req.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            leaderboardStats = JSON.parse(this.responseText);
+            let ties = leaderboardStats['Ties'];
+            let xWins = leaderboardStats['X Wins'];
+            let oWins = leaderboardStats['O Wins'];
+
+            document.getElementById("leaderboard").innerHTML = `
+                <h2>Session Leaderboard</h1>
+                <table>
+                    <tr> 
+                        <th>Ties</th>
+                        <td>${ties}</td>
+                    </tr>
+                    <tr> 
+                        <th>X Wins</th>
+                        <td>${xWins}</td>
+                    </tr>
+                    <tr> 
+                        <th>O Wins</th>
+                        <td>${oWins}</td>
+                    </tr>
+                </table>
+            `;
+        }
+    }
+
+    req.open("GET", "gamelogic.php?q=" + "leaderboard", true);
+    req.send();
+
+    
 }
 
 

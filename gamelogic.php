@@ -27,7 +27,7 @@ if ( isset( $_REQUEST[ 'q' ] ) ) {
     $q = $_REQUEST[ 'q' ];
 
     if ( $q == 'loaded' ) {
-        // initalize tiles on load.
+        // initalize tiles and leaderboard on load.
         $_SESSION[ 'turn' ] = 0;
         $_SESSION[ 'tiles' ] = [
             array( 'xAxis' => 0, 'yAxis' => 0, 'set' => 0 ),
@@ -40,11 +40,20 @@ if ( isset( $_REQUEST[ 'q' ] ) ) {
             array( 'xAxis' => 2, 'yAxis' => 1, 'set' => 0 ),
             array( 'xAxis' => 2, 'yAxis' => 2, 'set' => 0 )
         ];
+
+        $_SESSION['leaderboard'] = [
+            "Ties" => 0,
+            "X Wins" => 0,
+            "O Wins" => 0
+        ];
+
     } else if ( strlen( $q ) === 0 ) {
         checkEndGame();
 
     } else if ( $q == 'reset' ) {
         resetGame();
+    } else if ( $q == 'leaderboard') {
+        getLeaderboard();
     } else {
         //gets tile id( 0 to 8 )
         for ( $x = 0; $x <= 8; $x++ ) {
@@ -95,6 +104,8 @@ function checkEndGame() {
                     $win[ 1 ],
                     $win[ 2 ]
                 ];
+                $_SESSION['leaderboard']["X Wins"] += 1;
+
                 for ( $w = 0; $w < count( $_SESSION[ 'tiles' ] );
                 $w++ ) {
                     $_SESSION[ 'tiles' ][ $w ][ 'set' ] = 4;
@@ -111,6 +122,7 @@ function checkEndGame() {
                     $win[ 1 ],
                     $win[ 2 ]
                 ];
+                $_SESSION['leaderboard']["O Wins"] += 1;
                 for ( $w = 0; $w < count( $_SESSION[ 'tiles' ] );
                 $w++ ) {
                     $_SESSION[ 'tiles' ][ $w ][ 'set' ] = 4;
@@ -138,6 +150,7 @@ function checkEndGame() {
         ) {
             echo 'tie';
             $_SESSION[ 'turn' ] = 3;
+            $_SESSION['leaderboard']["Ties"] += 1;
             exit;
         } else {
             echo '';
@@ -154,4 +167,8 @@ function resetGame() { // reset game.
     $_SESSION[ 'turn' ] = 0;
 }
 
+function getLeaderboard() {
+    $response = json_encode($_SESSION['leaderboard']);
+    echo $response;
+}
 ?>
