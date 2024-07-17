@@ -25,6 +25,9 @@ and returned to the client.
 
 The reset button clears the board on the client side and sends a request to the server to reset the tile states.
 
+Since the leaderboard is stored in session, it is reset on page refresh, but not after reset button is clicked and new game
+is started.
+
 #Project Structure
 
 The index.php file contains the base html, and the server-side logic is contained in gamelogic.php
